@@ -1,4 +1,5 @@
-export const BASE_API = 'https://click/api/'; // DEV
+export const BASE_API = 'https://s3-eu-west-1.amazonaws.com'; // DEV
+// https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/products.json
 
 //Http
 export const POST = 'POST';
@@ -14,4 +15,3 @@ export const USER_DETAILS = 'user_details';
 export const SUCCESS = 'success';
 export const ERROR = 'error';
 export const INFO = 'info';
-

@@ -1,20 +1,29 @@
-import {PayloadAction, createSlice} from '@reduxjs/toolkit';
-import { AppModal } from './appModal';
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { AppModal, Product } from "./appModal";
 
-// Define the initial state using that type
 const initialState: AppModal = {
   loading: 0,
+  products: [],
+  selectedProduct: null,
 };
 
 export const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
-    setInitializeApp: state => {
+    setInitializeApp: (state) => {
       state.loading = 0;
+      state.products = [];
+      state.selectedProduct = null;
     },
-    setIsLoading: (state, {payload}: PayloadAction<number>) => {
+    setIsLoading: (state, { payload }: PayloadAction<number>) => {
       state.loading = payload;
+    },
+    setProducts: (state, { payload }: PayloadAction<Product[]>) => {
+      state.products = payload;
+    },
+    setSelectedProduct: (state, { payload }: PayloadAction<Product | null>) => {
+      state.selectedProduct = payload;
     },
   },
 });
@@ -22,6 +31,8 @@ export const appSlice = createSlice({
 export const {
   setInitializeApp,
   setIsLoading,
+  setProducts,
+  setSelectedProduct,
 } = appSlice.actions;
 
 export default appSlice.reducer;

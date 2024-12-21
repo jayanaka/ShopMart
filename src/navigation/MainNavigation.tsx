@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Splash from '../screens/Splash';
 import SpinnerOverlay from '../common/SpinnerOverlay';
 import { useAppSelector } from '../hooks/useRedux';
+import Products from '../screens/Products';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,11 @@ const MainNavigation = (props: any) => {
       <Stack.Screen
         name="Splash"
         component={Splash}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Products"
+        component={Products}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

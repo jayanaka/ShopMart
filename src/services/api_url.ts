@@ -1,6 +1,6 @@
 /* eslint-disable */
 const API_CONSTANT_MAP = {
-    INIT: 'settings/app/init',
+    PRODUCTS: '/api.themeshplatform.com/products.json',
   };
   
   export default API_CONSTANT_MAP;

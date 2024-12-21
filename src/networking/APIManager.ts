@@ -19,6 +19,9 @@ export const API: any = axios.create({
 });
 
 API.interceptors.request.use(
+  function (config: AxiosRequestConfig) {
+    return config;
+  },
   function (error: any) {
     return Promise.reject(error);
   },
@@ -29,6 +32,9 @@ API.interceptors.response.use(
     return response;
   },
   function (error: any) {
+    // console.log('DATA response error----------------', error);
+    // console.log('DATA response error----------------', error?.response?.data?.status);
+    // console.log('DATA response error----------------', error?.response?.data?.statusCode);
     const errorResponse: ErrorResponse = {
       status: error?.response?.data?.status || false,
       statusCode: error?.response?.data?.statusCode

@@ -8,7 +8,10 @@ import Dimensions from '../theme/Dimensions';
 const Splash = ({navigation}: any) => {
   
   useEffect(() => {
-    
+    setTimeout(() => {
+      // Navigate
+      navigation.navigate('Products');
+    }, 1000);
   }, []);
 
   return (
