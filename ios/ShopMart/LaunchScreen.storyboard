@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstore" translatesAutoresizingMaskIntoConstraints="NO" id="sVt-hs-gOT">
-                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                                <rect key="frame" x="75" y="221" width="225" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sVt-hs-gOT" secondAttribute="height" multiplier="1:1" id="Flu-82-gkT"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                         <constraints>
                             <constraint firstItem="sVt-hs-gOT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3zg-vR-wjO"/>
                             <constraint firstItem="sVt-hs-gOT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="X0g-YV-6fL"/>
-                            <constraint firstItem="sVt-hs-gOT" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.4" id="pz6-f1-Cd3"/>
+                            <constraint firstItem="sVt-hs-gOT" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.6" id="pz6-f1-Cd3"/>
                         </constraints>
                     </view>
                 </viewController>
