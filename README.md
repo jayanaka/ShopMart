@@ -1,6 +1,6 @@
 # Shopmart
 
-Discover a marketplace where buyers across the UK come to find poultry just like yours. Our app allows sellers to showcase their poultry with stunning videos and photos, making it easy for buyers to browse and find exactly what they’re looking for. Start selling your poultry effortlessly today!
+Sample shopping cart app.
 
 ## App screens
 <p align="center" >
