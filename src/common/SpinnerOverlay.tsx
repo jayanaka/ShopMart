@@ -1,20 +1,26 @@
 import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
-import Spinner from 'react-native-loading-spinner-overlay';
+import {SkypeIndicator} from 'react-native-indicators';
+
 import Colors from '../theme/Colors';
+import Dimensions from '../theme/Dimensions';
 
 const SpinnerOverlay = ({visible}: any) => {
   return (
-    <View>
-      <Spinner visible={visible} size="large" color={Colors.SPINNER_COLOR}  />
+    <View key={'sp'} style={styles.container}>
+      <SkypeIndicator color="blue" />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  loader: {
-    width: 50,
-    height: 50,
+  container: {
+    position: 'absolute',
+    width: Dimensions.WIDTH,
+    height: Dimensions.HEIGHT,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.BLACK_OPACITY_40,
   },
 });
 

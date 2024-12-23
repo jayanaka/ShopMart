@@ -1,20 +1,21 @@
 import {ThunkAction, UnknownAction} from '@reduxjs/toolkit';
 import NetInfo from '@react-native-community/netinfo';
-import { RootState } from './store';
-import { setIsLoading, setProducts } from './appSlice';
+import {RootState} from './store';
+import {setIsLoading, setProducts} from './appSlice';
 import productService from '../services/productService';
-import { ErrorResponse } from '../networking/APIManager';
-import { ERROR } from '../common/Constants';
-import { Product, ProductPrice } from './appModal';
+import {ErrorResponse} from '../networking/APIManager';
+import {ERROR} from '../common/Constants';
+import {Product, ProductPrice} from './appModal';
 
 export const getProductList = (
+  isRefresh: boolean,
   onError: (error: any) => void,
 ): ThunkAction<Promise<void>, RootState, unknown, UnknownAction> => {
   return async dispatch => {
     NetInfo.fetch().then(async state => {
       if (state.isConnected) {
         try {
-          dispatch(setIsLoading(1));
+          dispatch(setIsLoading(isRefresh ? 0 : 1));
           const response: any = await productService.getProducts();
           const {result, data} = response;
           if (result !== 'success') {
@@ -28,20 +29,19 @@ export const getProductList = (
             };
             onError(errorResponse);
           } else {
-            
             let productList: Product[] = [];
             for (let index = 0; index < data.length; index++) {
               const element = data[index];
 
               let sizeList: string[] = [];
-              for (let index = 0; index < element.sizes.length; index++) {
-                const elementSize = element.sizes[index];
+              for (let index1 = 0; index1 < element.sizes.length; index1++) {
+                const elementSize = element.sizes[index1];
                 sizeList.push(elementSize);
               }
 
               const priceObj: ProductPrice = {
                 amount: element.price.amount || null,
-                currency: element.price.currency || null
+                currency: element.price.currency || null,
               };
 
               const productObj: Product = {
@@ -59,11 +59,9 @@ export const getProductList = (
               productList.push(productObj);
             }
 
-            console.log('DATA----------------', productList[0]);
             dispatch(setProducts(productList));
           }
         } catch (error) {
-            console.log('DATA error----------------', error);
           onError(error);
         } finally {
           dispatch(setIsLoading(0));

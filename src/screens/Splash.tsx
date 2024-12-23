@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from 'react';
 import {useEffect} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 
 import Colors from '../theme/Colors';
 import Dimensions from '../theme/Dimensions';
 
 const Splash = ({navigation}: any) => {
-  
   useEffect(() => {
     setTimeout(() => {
-      // Navigate
       navigation.navigate('Products');
     }, 1000);
   }, []);

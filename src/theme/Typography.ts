@@ -1,4 +1,4 @@
-import {StyleSheet, Platform, PixelRatio} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Colors from './Colors';
 import Fonts from './Fonts';
 import Dimensions from './Dimensions';
@@ -30,13 +30,12 @@ export const Typography = StyleSheet.create<TypographyStyle>({
     l1: {
       fontFamily: Fonts.REGULAR,
       fontSize: 17 * Dimensions.RESPONSIVE_WIDTH,
-      color: Colors.PRIMARY_COLOR,
+      color: Colors.BLACK_COLOR,
     },
     l2: {
       fontFamily: Fonts.REGULAR,
       fontSize: 14 * Dimensions.RESPONSIVE_WIDTH,
-      color: Colors.PRIMARY_COLOR,
+      color: Colors.BLACK_COLOR,
     },
   },
 });
-

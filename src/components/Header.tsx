@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Dimensions from '../theme/Dimensions';
 import Colors from '../theme/Colors';
 import {Typography} from '../theme/Typography';
-import { IconCart, IconLeftArrow } from '../assets/icons/SVGIcons';
+import {IconCart, IconLeftArrow} from '../assets/icons/SVGIcons';
 
 export const Header = ({
   title = '',
@@ -79,3 +79,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+

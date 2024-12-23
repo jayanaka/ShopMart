@@ -1,79 +1,162 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Shopmart
 
-# Getting Started
+Discover a marketplace where buyers across the UK come to find poultry just like yours. Our app allows sellers to showcase their poultry with stunning videos and photos, making it easy for buyers to browse and find exactly what they’re looking for. Start selling your poultry effortlessly today!
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## App screens
+<p align="center" >
+  <img
+    height="480px"
+    src="src/assets/preview/preview_1.png"
+    alt="Preview 1"
+  />
+  <img
+    height="480px"
+    src="src/assets/preview/preview_2.png"
+    alt="Preview 2"
+  />
+  <img
+    height="480px"
+    src="src/assets/preview/preview_3.png"
+    alt="Preview 3"
+  />
+  <img
+    height="480px"
+    src="src/assets/preview/preview_4.png"
+    alt="Preview 4"
+  />
+</p>
 
-## Step 1: Start the Metro Server
+<br/>
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Requirements
+- iOS 12.0+
+- Xcode 12+
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Environment setup
+Follow these instructions to [environment setup](https://reactnative.dev/docs/environment-setup?guide=native).
+
+## Installation
+
+Clone the project (HTTPS / SSH)
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+  git clone https://github.com/jayanaka/ShopMart.git
+```
+or
+```bash
+  git clone git@github.com:jayanaka/ShopMart.git
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+Go to the project directory
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+  cd ShopMart
 ```
-
-### For iOS
+Install packages
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+  yarn install
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Install iOS dependencies
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Go to the iOS project directory
 
-## Step 3: Modifying your App
+```bash
+  cd ios
+```
+and run,
+```bash
+  pod install
+```
+Install android dependencies
 
-Now that you have successfully run the app, let's modify it.
+Go back project directory
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```bash
+  cd //
+```
+Go to the android project directory
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```bash
+  cd android
+```
+and run,
+```bash
+  ./gradlew clean
+```
+## Run device
+Run iOS device
 
-## Congratulations! :tada:
+```bash
+  yarn run ios
+```
+Like `npm start`, but also attempts to open your app in the iOS Simulator if you're on a Mac and have it installed.
 
-You've successfully run and modified your React Native App. :partying_face:
+Run android device
 
-### Now what?
+```bash
+  npx react-native run-android
+```
+Like `npm start`, but also attempts to open your app on a connected Android device or emulator. Requires an installation of Android build tools (see [React Native docs](https://facebook.github.io/react-native/docs/getting-started.html) for detailed setup). We also recommend installing Genymotion as your Android emulator. Once you've finished setting up the native build environment, there are two options for making the right copy of `adb` available to Create React Native App:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+##### Using Android Studio's `adb`
 
-# Troubleshooting
+1. Make sure that you can run adb from your terminal.
+2. Open Genymotion and navigate to `Settings -> ADB`. Select “Use custom Android SDK tools” and update with your [Android SDK directory](https://stackoverflow.com/questions/25176594/android-sdk-location).
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Libraries
+- @react-native-async-storage/async-storage : Storing simple, persistent data on a device
+- @react-native-community/netinfo : Provides information about the network connectivity state of the device
+- @react-navigation/native : library for implementing navigation in React Native apps.
+- @reduxjs/toolkit : Library for managing state in React and React Native applications using Redux.
+- redux
+- axios : Used for making HTTP requests in web and mobile applications.
+- nativewind : NativeWind allows you to use Tailwind CSS to style your components in React Native.
+- react-native-fast-image : Used for handles image caching.
+- react-native-indicators : Activity indicator.
+- react-native-svg : React-native-svg allows you to use SVGs in your app.
+- react-native-toast-message : Toast message component for React Native
 
-# Learn More
 
-To learn more about React Native, take a look at the following resources:
+## Directory Structure
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```
+root
+├── __tests__
+├── android
+├── ios
+├── node_modules
+└── src
+|   └── assets
+|   |   ├── fonts
+|   |   ├── icons
+|   |   └── svgs
+|   └── components
+|   |   ├── Header
+|   |   └── Product Item
+|   └── constant
+|   └── routes
+|   └── screens
+|   └── services
+|   └── theme
+|   └── utils
+```
+
+## Quick Overview
+
+Quickly get an idea about each folder's role.
+
+| Directory      | Short Description                                                        |
+| :------------- | :----------------------------------------------------------------------- |
+| android        | Android project. Includes modifications to integrate libraries.          |
+| ios            | iOS project. Includes modifications to integrate libraries.              |
+| src            | Most of the app's code is here.                                          |
+| assets         | Shared images, icons, fonts etc.                                         |
+| components     | Shared React components.                                                 |
+| constant       | A set of predefined constants.                                           |
+| context        | Context integration.                                                     |
+| routes         | Root and tab navigator.                                                  |
+| screens        | App screens.                                                             |
+| services       | Axios base configurations                                                |
+| theme          | Shared styles; app's theme.                                              |

@@ -1,5 +1,5 @@
-import API_CONSTANT_MAP from "./api_url";
-import { API } from "../networking/APIManager";
+import API_CONSTANT_MAP from './api_url';
+import {API} from '../networking/APIManager';
 
 const productService = {
   async getProducts() {

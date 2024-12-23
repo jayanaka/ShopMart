@@ -1,21 +1,5 @@
 import React from 'react';
-import Svg, {
-  Circle,
-  G,
-  Line,
-  Path,
-  Text,
-  TSpan,
-  Defs,
-  Stop,
-  LinearGradient,
-  Rect,
-  Image,
-  Use,
-  Pattern,
-  Ellipse,
-  ClipPath,
-} from 'react-native-svg';
+import Svg, {Path} from 'react-native-svg';
 
 export const IconLeftArrow = (props: any) => (
   <Svg
@@ -42,8 +26,7 @@ export const IconCart = (props: any) => (
     viewBox="0 0 20 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+    {...props}>
     <Path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -57,18 +40,17 @@ export const IconCart = (props: any) => (
   </Svg>
 );
 
-export const IconClose = (props: any) => (
+export const IconDelete = (props: any) => (
   <Svg
-    width={24}
-    height={24}
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}>
+    xmlns="http://www.w3.org/2000/svg">
     <Path
-      d="M18.364 5.636 12 12m-6.364 6.364L12 12m0 0L5.636 5.636M12 12l6.364 6.364"
-      stroke="#282828"
-      strokeWidth={1.8}
+      d="M3 6h18M9 6v12M15 6v12M4 6l1.528 14.24c.096.89.84 1.56 1.736 1.56h9.472c.896 0 1.64-.67 1.736-1.56L20 6M10 6V4c0-.552.448-1 1-1h2c.552 0 1 .448 1 1v2"
+      stroke="#FF0000"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
