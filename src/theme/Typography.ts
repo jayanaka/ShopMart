@@ -12,8 +12,8 @@ type TypographyStyle = {
 export const Typography = StyleSheet.create<TypographyStyle>({
   LABEL: {
     l1: {
-      fontFamily: Fonts.REGULAR,
-      fontSize: 17 * Dimensions.RESPONSIVE_WIDTH,
+      fontFamily: Fonts.MEDIUM,
+      fontSize: 22 * Dimensions.RESPONSIVE_WIDTH,
       color: Colors.PRIMARY_COLOR,
     },
   },

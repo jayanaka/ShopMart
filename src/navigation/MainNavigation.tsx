@@ -5,6 +5,8 @@ import Splash from '../screens/Splash';
 import SpinnerOverlay from '../common/SpinnerOverlay';
 import { useAppSelector } from '../hooks/useRedux';
 import Products from '../screens/Products';
+import ProductInfo from '../screens/ProductInfo';
+import Cart from '../screens/Cart';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +26,16 @@ const MainNavigation = (props: any) => {
       <Stack.Screen
         name="Products"
         component={Products}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProductInfo"
+        component={ProductInfo}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Cart"
+        component={Cart}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

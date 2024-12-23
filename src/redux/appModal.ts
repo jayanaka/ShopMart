@@ -2,6 +2,7 @@ export interface AppModal {
   loading: number; // default = 0, loading = 1, refresh = 2
   products: Product[];
   selectedProduct: Product | null;
+  cart: CartItem[];
 }
 
 export interface Product {
@@ -20,6 +21,18 @@ export interface Product {
 export interface ProductPrice {
   amount: string;
   currency: string;
+}
+
+export interface CartItem {
+  id: string;
+  SKU: string;
+  name: string;
+  brandName: string;
+  mainImage: string;
+  price: ProductPrice | null;
+  size: string;
+  colour: string;
+  qty: number;
 }
 
 // {

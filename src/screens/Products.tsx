@@ -1,45 +1,83 @@
 import React, {useState} from 'react';
 import {useEffect} from 'react';
-import {Text, View, TouchableOpacity, Image, StatusBar, SafeAreaView, FlatList, Dimensions} from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  StatusBar,
+  SafeAreaView,
+  FlatList,
+  Dimensions,
+} from 'react-native';
 
 import Colors from '../theme/Colors';
 import Toast from 'react-native-toast-message';
-import { ErrorResponse } from '../networking/APIManager';
-import { useAppDispatch, useAppSelector } from '../hooks/useRedux';
-import { getProductList } from '../redux/appAction';
-import axios from 'axios';
-// import ProductItem from '../components/ProductItem';
+import {ErrorResponse} from '../networking/APIManager';
+import {useAppDispatch, useAppSelector} from '../hooks/useRedux';
+import {getProductList} from '../redux/appAction';
+import ProductItem from '../components/ProductItem';
+import { Product } from '../redux/appModal';
+import { setSelectedProduct } from '../redux/appSlice';
+import { Header } from '../components/Header';
 
 const Products = ({navigation}: any) => {
   const dispatch = useAppDispatch();
-  const {loading, products} = useAppSelector(
-    state => state.app,
-  );
+  const {loading, products} = useAppSelector(state => state.app);
 
-  const numColumns = 2
-  const screen_width = Dimensions.get('window').width
-  const column_width = screen_width / numColumns
-  
+  const numColumns = 2;
+  const screen_width = Dimensions.get('window').width;
+  const column_width = screen_width / numColumns;
+
   useEffect(() => {
     initAction();
   }, []);
 
   const initAction = async () => {
     dispatch(
-        getProductList(
-        (error: ErrorResponse) => {
-          Toast.show({
-            type: error.type,
-            text1: error.title,
-            text2: error.message,
-          });
-        },
-      ),
+      getProductList((error: ErrorResponse) => {
+        Toast.show({
+          type: error.type,
+          text1: error.title,
+          text2: error.message,
+        });
+      }),
+    );
+  };
+
+  const onPressProductAction = (item: Product) => {
+    console.log('onPressProductAction-------------', item);
+    dispatch(setSelectedProduct(item));
+ 
+    navigation.navigate('ProductInfo');
+  };
+
+  const onPressCartAction = () => {
+    navigation.navigate('Cart');
+  };
+
+  const renderProductItemData = ({item, index}: any) => {
+    return (
+      <ProductItem index={index} item={item} column_width={column_width} onPressHandler={(item: Product) => {
+        onPressProductAction(item);
+      }} />
     );
   };
 
   return (
-    <View></View>
+    <View style={{flex: 1, backgroundColor: Colors.BACKGROUND_COLOR}}>
+      <SafeAreaView />
+      <Header title='ShopMart' isShowCart={true} onCartPress={onPressCartAction}/>
+      <FlatList
+        data={products}
+        numColumns={numColumns}
+        keyExtractor={(item, index) => `pi${index}`}
+        renderItem={renderProductItemData}
+      />
+    </View>
+
+    // <View></View>
+
     // <View className="flex-1 items-center justify-center bg-gray-200">
     //   <Text className="text-3xl font-bold text-blue-600">
     //     Hello, Tailwind CSS in React Native!

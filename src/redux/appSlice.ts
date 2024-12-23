@@ -1,10 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { AppModal, Product } from "./appModal";
+import { AppModal, CartItem, Product } from "./appModal";
 
 const initialState: AppModal = {
   loading: 0,
   products: [],
   selectedProduct: null,
+  cart: [],
 };
 
 export const appSlice = createSlice({
@@ -15,6 +16,7 @@ export const appSlice = createSlice({
       state.loading = 0;
       state.products = [];
       state.selectedProduct = null;
+      state.cart = [];
     },
     setIsLoading: (state, { payload }: PayloadAction<number>) => {
       state.loading = payload;
@@ -25,6 +27,18 @@ export const appSlice = createSlice({
     setSelectedProduct: (state, { payload }: PayloadAction<Product | null>) => {
       state.selectedProduct = payload;
     },
+    addProductToCart: (state, { payload }: PayloadAction<CartItem>) => {
+      const objIndex = state.cart.findIndex((obj) => {
+        return (obj.id === payload.id && obj.size === payload.size);
+      });
+      if (objIndex >= 0) {
+        let items = [...state.cart];
+        items[objIndex].qty = items[objIndex].qty + payload.qty;
+        state.cart = items;
+      } else {
+        state.cart.push(payload);
+      }
+    },
   },
 });
 
@@ -33,6 +47,7 @@ export const {
   setIsLoading,
   setProducts,
   setSelectedProduct,
+  addProductToCart,
 } = appSlice.actions;
 
 export default appSlice.reducer;
